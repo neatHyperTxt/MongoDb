@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Product</title>
+    <title>Edit Product</title>
 </head>
+
 <body style=" background-color: rgb(212, 212, 212);">
     <h1>Add a Product</h1>
-    <form action="/products" method="POST">
+    <form action="/products/<%=product._id%>?_method=PUT" method="POST">
         <label for="name">Product Name</label>
-        <input id="name" type="text" name="name" placeholder="Product Name">
+        <input id="name" type="text" name="name" placeholder="Product Name" value="<%=product.name%>">
         <label for="price">Price (Unit)</label>
-        <input id="price" type="number" name="price" placeholder="Price">
+        <input id="price" type="number" value="<%product.price%>" name="price" placeholder="Price">
         <label for="categories">Category</label>
         <select name="category" id="categories">
             <% for(let category of categories){ %>
-                <option value="<%=category%>"><%=category%></option>
-                <% } %>  
+                <option value="<%=category%>" <%=(product.category === category) ?'selected':'' %> >  <%=category%>
+                </option>
+            <% } %>
         </select>
         <button style="display: block; margin: 0 auto; margin-top: 3em;">Add Product</button>
     </form>
     <a style="text-decoration:none;" href="/products">View All Products</a>
 </body>
-</html> 
+
+</html>

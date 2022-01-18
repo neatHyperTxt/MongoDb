@@ -8,10 +8,13 @@
 </head>
 <body style="text-align: center;">
     <h1><%=foundProduct.name%></h1>
+    <hr>
     <ul style="list-style-type: none;">
         <li>Price: $<%=foundProduct.price%> </li>
         <li>Category:<%=foundProduct.category%> </li>
     </ul>
+    <hr>
+    <a style="text-decoration: none; margin-right: 2em;" href="/products/<%=foundProduct._id%>/edit">Edit This Product</a>
     <a style="text-decoration: none;" href="/products">All Products</a>
 </body>
 </html>
