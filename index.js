@@ -3,8 +3,8 @@ const app = express();
 const path = require('path');
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'));
-
-const Product = require('./models/product');
+app.use(express.urlencoded({extended:true}))
+const Product = require('./models/product')
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/farmStand')
@@ -16,7 +16,30 @@ mongoose.connect('mongodb://localhost:27017/farmStand')
         console.log(err);
     })
 
+//routes
 
+app.get('/products',async (req,res)=>
+{
+    const products = await Product.find({})
+    res.render('products/index',{products});
+})
+
+app.get('/products/:id',async (req,res)=>
+{
+    const {id} = req.params;
+    const foundProduct = await Product.findById(id);
+    res.render('products/show',{foundProduct});
+})
+app.get('/productsNew',(req,res)=>
+{
+    res.render('products/new');
+})
+
+app.post('/products',(req,res)=>
+{
+    console.log(req.body);
+    res.send('Making Your Product');
+})
 
 // port
 
