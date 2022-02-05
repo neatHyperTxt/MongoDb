@@ -5,19 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Products</title>
+    <title><%=category%> Products</title>
 </head>
 
 <body>
-    <h1 style="text-align: center;">All Products</h1>
+    <h1 style="text-align: center;"><%=category%> Products</h1>
     <ul>
         <%for(let product of products){%>
             <li><a style="text-decoration: none;" href="/products/<%=product._id%> ">
                     <%=product.name%>
                 </a></li>
-            <% } %>
+        <%}%>
     </ul>
     <a style="text-decoration: none;" href="/products/new">Create a New Product</a>
+    <a style="text-decoration: none; margin-left: 2em;" href="/products">View All Products</a>
 </body>
 
 </html>

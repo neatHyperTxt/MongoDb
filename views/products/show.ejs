@@ -1,20 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%=foundProduct.name%> </title>
+    <title>
+        <%=foundProduct.name%>
+    </title>
 </head>
+
 <body style="text-align: center;">
-    <h1><%=foundProduct.name%></h1>
+    <h1>
+        <%=foundProduct.name%>
+    </h1>
     <hr>
     <ul style="list-style-type: none;">
-        <li>Price: $<%=foundProduct.price%> </li>
-        <li>Category:<%=foundProduct.category%> </li>
+        <li>Price: $<%=foundProduct.price%>
+        </li>
+        <li>Category:<a href="/products?category=<%=foundProduct.category%>"><%=foundProduct.category%></a>
+        </li>
+        <li>
+            Farm Name: <a href="/farms/<%=foundProduct.farm._id%>"><%=foundProduct.farm.name%> </a>
+        </li>
     </ul>
     <hr>
-    <a style="text-decoration: none; margin-right: 2em;" href="/products/<%=foundProduct._id%>/edit">Edit This Product</a>
+    <a style="text-decoration: none; margin-right: 2em;" href="/products/<%=foundProduct._id%>/edit">Edit This
+        Product</a>
     <a style="text-decoration: none;" href="/products">All Products</a>
+    <form style="margin-top: 3em;" action="/products/<%=foundProduct._id%>?_method=DELETE" method="POST">
+        <button
+            style="border: none; background-color: rgb(247, 12, 12); color: white; padding: 0.5em 1.5em; font-size: 1em; border-radius: 5px;">Delete</button>
+    </form>
 </body>
+
 </html>
+
+
+
+
+
+
+
+

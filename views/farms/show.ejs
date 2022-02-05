@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%=foundFarm.name%>
+    </title>
+</head>
+
+<body>
+    <h1 style="text-align: center; font-weight: 300; border-bottom: 2px solid black; width: 250px; display: block; margin: 0 auto; white-space: nowrap;">
+        <%=foundFarm.name%>
+    </h1>
+    <ul>
+        <li>City: <%=foundFarm.city%>
+        </li>
+        <li>Email:<a href=""><%=foundFarm.email%> </a>
+        </li>
+    </ul>
+    <hr>
+    <h1 style="font-weight: 300; text-align: center;">All Products</h1>
+    <ul>
+        <% for(let product of foundFarm.products){ %>
+            <li>
+                <a href="/products/<%=product._id%> "><%=product.name%> </a>
+            </li>
+            <% } %>  
+    </ul>
+    <a href="/farms/<%=foundFarm._id%>/products/new  ">Add Product</a>
+    <a href="/farms">View All Farms</a>
+</body>
+
+</html>

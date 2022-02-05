@@ -14,7 +14,7 @@
         <label for="name">Product Name</label>
         <input id="name" type="text" name="name" placeholder="Product Name" value="<%=product.name%>">
         <label for="price">Price (Unit)</label>
-        <input id="price" type="number" value="<%product.price%>" name="price" placeholder="Price">
+        <input id="price" type="number" value="<%=product.price%>" name="price" placeholder="Price">
         <label for="categories">Category</label>
         <select name="category" id="categories">
             <% for(let category of categories){ %>
